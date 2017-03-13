@@ -38,7 +38,32 @@
 </style>
 
 <button></button>
+
 <script>
+
+  const divs = document.querySeletorAll('div');
+  const button = document.querySelector('button');
+
+  function logText(e) {
+    // stops from bubbling it up
+    // e.stopPropagation()
+
+    // logs all three boxes - due to wrapping - ripples its way up
+    // console.log(this.classList.value)
+
+
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false,
+    once: true
+  }));
+
+  button.addEventListener('click', () => {
+    console.log('click!');
+  }, {
+    once: true
+  })
 
 </script>
 </body>
